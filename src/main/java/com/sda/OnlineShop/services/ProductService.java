@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -32,5 +33,19 @@ public class ProductService {
             productDtos.add(productDto);
         }
         return productDtos;
+    }
+
+    public Optional<ProductDto> getOptionalProductDtoById(String productId) {
+        try {
+            Optional<Product> optionalProduct = productRepository.findById(Integer.valueOf(productId));
+            if (optionalProduct.isEmpty()) {
+                return Optional.empty();
+            }
+            Product product = optionalProduct.get();
+            ProductDto productDto = productMapper.map(product);
+            return Optional.of(productDto);
+        } catch (NumberFormatException e) {
+            return Optional.empty();
+        }
     }
 }
