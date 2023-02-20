@@ -30,6 +30,7 @@ public class ProductMapper {
         productDto.setQuantity(String.valueOf(product.getQuantity()));
         productDto.setDescription(product.getDescription());
         productDto.setImage(Base64.encodeBase64String(product.getImage()));
+        productDto.setId(String.valueOf(product.getProductId()));
         return productDto;
     }
 
