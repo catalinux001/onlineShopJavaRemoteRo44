@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns:th="http://www/thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
-
-
-    <link rel="icon" href="img/Fevicon.png" type="image/png">
+    <title>Add Product</title>
+    <link rel="icon" href="img/favicons/add.png" type="image/png">
     <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
@@ -20,38 +17,51 @@
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" href="css/custom.css">
-
 </head>
 <body>
 
 <!--================Login Box Area =================-->
-<section class="login_box_area section-margin ">
-    <div class="container ">
+<section class="login_box_area section-margin">
+    <div class="container">
         <div class="row">
-
-            <div class="col-lg-6 center" >
+            <div class="col-lg-6" style="margin: 0 auto;">
                 <div class="login_form_inner register_form_inner">
                     <h3>Add a product</h3>
-                    <form th:object="${productDto}" class="row login_form" action="/addProduct" method="post" id="register_form" >
+                    <form th:object="${productDto}" class="row login_form" action="/addProduct" method="post"
+                          id="register_form" enctype="multipart/form-data">
                         <div class="col-md-12 form-group">
-                            <input th:field="*{name}" type="text" class="form-control" id="productName" name="productName" placeholder="Product Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Product name'">
+                            <input th:field="*{name}" type="text" class="form-control" id="productName"
+                                   name="productName" placeholder="Product name" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Product name'">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input th:field="*{price}" type="text" class="form-control" id="price" name="price" placeholder="Price" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Price'">
+                            <input th:field="*{price}" type="text" class="form-control" id="price" name="price"
+                                   placeholder="Price" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Price'">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input th:field="*{category}" type="text" class="form-control" id="category" name="category" placeholder="Category" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Category'">
+                            <input th:field="*{category}" type="text" class="form-control" id="category" name="category"
+                                   placeholder="Category" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Category'">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input th:field="*{quantity}" type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantity" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Quantity'">
+                            <input th:field="*{quantity}" type="text" class="form-control" id="quantity" name="quantity"
+                                   placeholder="Quantity" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Quantity'">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input th:field="*{description}" type="text" class="form-control" id="description" name="description" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'">
+                            <input th:field="*{description}" type="text" class="form-control" id="description"
+                                   name="description" placeholder="Description" onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Description'">
+                        </div>
 
+                        <div class="col-md-12 form-group">
+                            <input type="file" class="form-control" id="productImage" name="productImage">
                         </div>
 
                         <div class="col-md-12 form-group">
-                            <button type="submit" value="submit" class="button button-register w-100">Add product</button>
+                            <button type="submit" value="submit" class="button button-register w-100">ADD PRODUCT
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -60,5 +70,6 @@
     </div>
 </section>
 <!--================End Login Box Area =================-->
+
 </body>
 </html>
