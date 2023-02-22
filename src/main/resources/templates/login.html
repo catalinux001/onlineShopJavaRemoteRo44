@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
   <meta charset="UTF-8">
-  <title>Login</title>
-
-  <meta charset="UTF-8">
-  <title>View Product</title>
-  <link rel="icon" href="img/favicons/view.png" type="image/png">
+  <title>LogIn</title>
+  <link rel="icon" href="/img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="/vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="/vendors/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="/vendors/themify-icons/themify-icons.css">
@@ -18,10 +16,7 @@
   <link rel="stylesheet" href="/css/style.css">
 
   <link rel="stylesheet" href="/css/custom.css">
-
-</head>
 <body>
-
 <!--================Login Box Area =================-->
 <section class="login_box_area section-margin">
   <div class="container">
@@ -30,8 +25,7 @@
         <div class="login_box_img">
           <div class="hover">
             <h4>New to our website?</h4>
-            <p>There are advances being made in science and technology everyday, and a good example of this
-              is the</p>
+            <p>There are advances being made in science and technology everyday, and a good example of this is the</p>
             <a class="button button-account" href="/registration">Create an Account</a>
           </div>
         </div>
@@ -39,14 +33,12 @@
       <div class="col-lg-6">
         <div class="login_form_inner">
           <h3>Log in to enter</h3>
-          <form class="row login_form" action="#/" id="contactForm">
+          <form class="row login_form" action="/login" method="post" id="contactForm" >
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="name" name="name" placeholder="Username"
-                     onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+              <input type="text" class="form-control" id="email" name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
             </div>
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="name" name="name" placeholder="Password"
-                     onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+              <input type="text" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
             </div>
             <div class="col-md-12 form-group">
               <div class="creat_account">
@@ -64,8 +56,6 @@
     </div>
   </div>
 </section>
-<!--================End Login Box Area =================-->
-
 <script src="/vendors/jquery/jquery-3.2.1.min.js"></script>
 <script src="/vendors/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="/vendors/skrollr.min.js"></script>
@@ -74,7 +64,5 @@
 <script src="/vendors/jquery.ajaxchimp.min.js"></script>
 <script src="/vendors/mail-script.js"></script>
 <script src="/js/main.js"></script>
-
-
 </body>
 </html>
