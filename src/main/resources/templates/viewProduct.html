@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -23,6 +22,9 @@
 
 
 <body>
+
+<div th:insert="fragments/menu :: menu"></div>
+
 <!--================Single Product Area =================-->
 <div class="product_image_area">
     <div class="container">
@@ -42,21 +44,25 @@
                     <h2 th:text="${'$'+productDto.price}"></h2>
                     <ul class="list">
 
-                        <li><a class="active" href="#"><span th:text="${productDto.category}">Category : </span></a></li>
+                        <li><a class="active" href="#"><span th:text="${productDto.category}">Category : </span></a>
+                        </li>
                         <li><a href="#"><span th:text="${productDto.quantity}">Availibility</span></a></li>
                     </ul>
                     <p th:text="${productDto.description}"></p>
                     <div class="product_count">
-                        <label for="qty">Quantity:</label>
-                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-                                class="increase items-count" type="button"><i class="ti-angle-left"></i></button>
+                        <form th:object="${selectedProductDto}"
+                              th:action="@{/product/{y}/{x}(x=${productDto.id},y=${productDto.name})}" method="post">
+                            <label for="qty">Quantity:</label>
+                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+                                    class="increase items-count" type="button"><i class="ti-angle-left"></i></button>
 
-                        <input type="text" name="qty" id="sst" size="2" maxlength="12" value="1" title="Quantity:"
-                               class="input-text qty">
+                            <input type="text" name="qty" id="sst" size="2" maxlength="12" value="1" title="Quantity:"
+                                   class="input-text qty">
 
-                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-                                class="reduced items-count" type="button"><i class="ti-angle-right"></i></button>
-                        <a class="button primary-btn" href="#">Add to Cart</a>
+                            <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+                                    class="reduced items-count" type="button"><i class="ti-angle-right"></i></button>
+                            <a class="button primary-btn" href="#">Add to Cart</a>
+                        </form>
                     </div>
                     <div class="card_area d-flex align-items-center">
                         <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
