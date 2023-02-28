@@ -5,6 +5,7 @@ import com.sda.OnlineShop.dto.ProductDto;
 import com.sda.OnlineShop.dto.RegistrationDto;
 import com.sda.OnlineShop.dto.SelectedProductDto;
 import com.sda.OnlineShop.dto.ShoppingCartDto;
+import com.sda.OnlineShop.services.OrderService;
 import com.sda.OnlineShop.services.ProductService;
 import com.sda.OnlineShop.services.RegistrationService;
 import com.sda.OnlineShop.services.ShoppingCartService;
@@ -34,6 +35,8 @@ public class MainController {
     private RegistrationDtoValidator registrationDtoValidator;
     @Autowired
     private ShoppingCartService shoppingCartService;
+    @Autowired
+    private OrderService orderService;
 
     @GetMapping("/addProduct")
     public String addProductGet(Model model) {
@@ -118,6 +121,13 @@ public class MainController {
     public String viewCheckoutGet(Authentication authentication, Model model) {
         ShoppingCartDto shoppingCartDto = shoppingCartService.getShoppingCartDto(authentication.getName());
         model.addAttribute("shoppingCartDto", shoppingCartDto);
+        System.out.println(shoppingCartDto);
         return "checkout";
+    }
+
+    @PostMapping("/confirmation")
+    public String launchOrderPost(Authentication authentication) {
+        orderService.launchOrder(authentication.getName());
+        return "confirmation";
     }
 }

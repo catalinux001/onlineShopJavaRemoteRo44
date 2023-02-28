@@ -11,13 +11,14 @@ public class SelectedProduct {
     @Id
     @GeneratedValue
     private Integer selectedProductId;
-
     @ManyToOne
     @JoinColumn
     private Product product;
     private Integer quantity;
-
     @ManyToOne
     @JoinColumn
     private ShoppingCart shoppingCart;
+    @ManyToOne
+    @JoinColumn
+    private CustomerOrder customerOrder;
 }
