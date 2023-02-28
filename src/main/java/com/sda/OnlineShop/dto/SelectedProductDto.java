@@ -10,5 +10,6 @@ import lombok.ToString;
 public class SelectedProductDto {
     private String name;
     private String quantity;
+    private String price;
     private String priceTimesQuantity;
 }
